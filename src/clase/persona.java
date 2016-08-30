@@ -34,5 +34,13 @@ public class persona {
     public void setPrimer_nombre(String primer_nombre ){
         this.primer_nombre=primer_nombre;
     }
+
+    public void setIdentificacion(long identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public void setPrimer_apellido(String primer_apellido) {
+        this.primer_apellido = primer_apellido;
+    }
     
 }
