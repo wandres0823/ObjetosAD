@@ -5,7 +5,7 @@
  */
 
 package interfaz;
-
+import clase.persona;
 /**
  *
  * @author walbonis1
@@ -15,7 +15,9 @@ public class principal extends javax.swing.JFrame {
     /**
      * Creates new form principal
      */
-    public principal() {
+    persona v[] = new persona[5];
+    int cont =0;
+            public principal() {
         initComponents();
     }
 
@@ -49,8 +51,10 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 2, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setText("Agregar personas");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 320, 60));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "opciones", 0, 0, new java.awt.Font("Comic Sans MS", 0, 11))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,6 +66,11 @@ public class principal extends javax.swing.JFrame {
         jPanel2.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 100, -1));
 
         cmdguardar.setText("Guardar");
+        cmdguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdguardarActionPerformed(evt);
+            }
+        });
         jPanel2.add(cmdguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 100, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 170, 190));
@@ -110,6 +119,25 @@ public class principal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdguardarActionPerformed
+       persona p;
+       long identificacion;
+       String primer_nombre, primer_apellido;
+       
+       identificacion =Long.parseLong(txtIdentificacion.getText());
+       primer_nombre=txtNombre.getText();
+       primer_apellido=txtApellido.getText();
+       
+       p=new persona(identificacion, primer_nombre, primer_apellido);
+       v[cont]=p;
+       cont++;
+               
+       
+       
+       
+       
+    }//GEN-LAST:event_cmdguardarActionPerformed
 
     /**
      * @param args the command line arguments
