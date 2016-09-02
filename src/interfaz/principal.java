@@ -6,6 +6,8 @@
 
 package interfaz;
 import clase.persona;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author walbonis1
@@ -15,9 +17,9 @@ public class principal extends javax.swing.JFrame {
     /**
      * Creates new form principal
      */
-    persona v[] = new persona[5];
-    int cont =0;
-            public principal() {
+    ArrayList<persona> v = new ArrayList();
+  
+   public principal() {
         initComponents();
     }
 
@@ -51,7 +53,7 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 2, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 2, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("Agregar personas");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 320, 60));
@@ -59,12 +61,25 @@ public class principal extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "opciones", 0, 0, new java.awt.Font("Comic Sans MS", 0, 11))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cmdMostar.setBackground(new java.awt.Color(153, 255, 255));
         cmdMostar.setText("Mostar");
+        cmdMostar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdMostarActionPerformed(evt);
+            }
+        });
         jPanel2.add(cmdMostar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, -1));
 
+        cmdLimpiar.setBackground(new java.awt.Color(153, 255, 255));
         cmdLimpiar.setText("Limpiar");
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
         jPanel2.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 100, -1));
 
+        cmdguardar.setBackground(new java.awt.Color(153, 255, 255));
         cmdguardar.setText("Guardar");
         cmdguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,8 +101,14 @@ public class principal extends javax.swing.JFrame {
 
         jLabel7.setText("Identificacion");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        txtNombre.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, -1));
+
+        txtApellido.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 80, -1));
+
+        txtIdentificacion.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jPanel3.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 80, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 210, 190));
@@ -130,14 +151,50 @@ public class principal extends javax.swing.JFrame {
        primer_apellido=txtApellido.getText();
        
        p=new persona(identificacion, primer_nombre, primer_apellido);
-       v[cont]=p;
-       cont++;
-               
+       v.add(p);
+        JOptionPane.showMessageDialog(this ,"persona agregada exitosamente!");
+        txtIdentificacion.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtIdentificacion.requestFocusInWindow();
        
        
        
        
     }//GEN-LAST:event_cmdguardarActionPerformed
+
+    private void cmdMostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostarActionPerformed
+        String aux;
+        if(v.isEmpty()){
+            txtResultado.setText("no hay  persona que mostrar");
+        }else{
+            
+        }
+                for (int i = 0; i < v.size(); i++) {
+            aux ="persona no ."+(i+1)+"\n"
+            + "identificacion"+v.get(i).getIdentificacion()+"\n"
+            +"primer nombre :"+v.get(i).getPrimer_nombre()+"\n"
+            +"primer apellido :"+v.get(i).getPrimer_apellido()+"\n\n";
+            
+            txtResultado.append(aux);
+                    
+            
+        }
+    }//GEN-LAST:event_cmdMostarActionPerformed
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+    int op;
+    op =JOptionPane.showConfirmDialog(this ,"segiro que desea eleiminar a la persona ?","Pregunta",JOptionPane.YES_NO_CANCEL_OPTION);
+    if(op == JOptionPane.YES_OPTION){
+        v.clear();
+        txtIdentificacion.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtResultado.setText("");
+        txtIdentificacion.requestFocusInWindow();
+       
+    }
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
