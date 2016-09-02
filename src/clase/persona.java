@@ -14,11 +14,13 @@ public class persona {
    private long identificacion;
    private String primer_nombre;
    private String primer_apellido;
+   private String sexo;
     
-    public persona(long identificacion, String primer_nombre, String primer_apellido){
+    public persona(long identificacion, String primer_nombre, String primer_apellido,String sexo){
         this.identificacion=identificacion;
         this.primer_nombre=primer_nombre;
         this.primer_apellido=primer_apellido;
+        this.sexo=sexo;
     }
  public long getIdentificacion(){
      return identificacion;
@@ -41,6 +43,10 @@ public class persona {
 
     public void setPrimer_apellido(String primer_apellido) {
         this.primer_apellido = primer_apellido;
+    }
+
+    public String getSexo() {
+        return sexo;
     }
     
 }

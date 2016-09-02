@@ -36,8 +36,9 @@ public class principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         cmdMostar = new javax.swing.JButton();
-        cmdLimpiar = new javax.swing.JButton();
         cmdguardar = new javax.swing.JButton();
+        txtSExo = new javax.swing.JButton();
+        cmdLimpiar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -45,6 +46,8 @@ public class principal extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtIdentificacion = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        cmbSexo = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
@@ -70,15 +73,6 @@ public class principal extends javax.swing.JFrame {
         });
         jPanel2.add(cmdMostar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, -1));
 
-        cmdLimpiar.setBackground(new java.awt.Color(153, 255, 255));
-        cmdLimpiar.setText("Limpiar");
-        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdLimpiarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 100, -1));
-
         cmdguardar.setBackground(new java.awt.Color(153, 255, 255));
         cmdguardar.setText("Guardar");
         cmdguardar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +82,25 @@ public class principal extends javax.swing.JFrame {
         });
         jPanel2.add(cmdguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 100, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 170, 190));
+        txtSExo.setBackground(new java.awt.Color(153, 255, 255));
+        txtSExo.setText("Dictar mujeres");
+        txtSExo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSExoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtSExo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 130, -1));
+
+        cmdLimpiar.setBackground(new java.awt.Color(153, 255, 255));
+        cmdLimpiar.setText("Limpiar");
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 100, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 170, 220));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "datos basicos", 0, 0, new java.awt.Font("Comic Sans MS", 0, 11))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,7 +123,13 @@ public class principal extends javax.swing.JFrame {
         txtIdentificacion.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jPanel3.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 80, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 210, 190));
+        jLabel2.setText("Sexo");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+
+        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hombre", "MUjer", " " }));
+        jPanel3.add(cmbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 80, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 210, 230));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", 0, 0, new java.awt.Font("Comic Sans MS", 0, 11))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,20 +138,22 @@ public class principal extends javax.swing.JFrame {
         txtResultado.setRows(5);
         jScrollPane1.setViewportView(txtResultado);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 320, 150));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 320, 150));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 370, 190));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 370, 190));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -144,20 +164,21 @@ public class principal extends javax.swing.JFrame {
     private void cmdguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdguardarActionPerformed
        persona p;
        long identificacion;
-       String primer_nombre, primer_apellido;
+       String primer_nombre, primer_apellido ,sexo ;
        
        identificacion =Long.parseLong(txtIdentificacion.getText());
        primer_nombre=txtNombre.getText();
        primer_apellido=txtApellido.getText();
+       sexo = cmbSexo.getSelectedItem().toString();
        
-       p=new persona(identificacion, primer_nombre, primer_apellido);
+       p= new persona(identificacion, primer_nombre, primer_apellido ,sexo);
        v.add(p);
         JOptionPane.showMessageDialog(this ,"persona agregada exitosamente!");
         txtIdentificacion.setText("");
         txtNombre.setText("");
         txtApellido.setText("");
         txtIdentificacion.requestFocusInWindow();
-       
+       cmbSexo.setSelectedIndex(0);
        
        
        
@@ -165,6 +186,7 @@ public class principal extends javax.swing.JFrame {
 
     private void cmdMostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostarActionPerformed
         String aux;
+      
         if(v.isEmpty()){
             txtResultado.setText("no hay  persona que mostrar");
         }else{
@@ -174,12 +196,11 @@ public class principal extends javax.swing.JFrame {
             aux ="persona no ."+(i+1)+"\n"
             + "identificacion"+v.get(i).getIdentificacion()+"\n"
             +"primer nombre :"+v.get(i).getPrimer_nombre()+"\n"
-            +"primer apellido :"+v.get(i).getPrimer_apellido()+"\n\n";
+            +"primer apellido :"+v.get(i).getPrimer_apellido()+"\n"
+           +"primer sexo :"+v.get(i).getSexo()+"\n\n";
             
             txtResultado.append(aux);
-                    
-            
-        }
+                }
     }//GEN-LAST:event_cmdMostarActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
@@ -192,9 +213,34 @@ public class principal extends javax.swing.JFrame {
         txtApellido.setText("");
         txtResultado.setText("");
         txtIdentificacion.requestFocusInWindow();
-       
+       cmbSexo.setSelectedIndex(0);
     }
     }//GEN-LAST:event_cmdLimpiarActionPerformed
+
+    private void txtSExoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSExoActionPerformed
+   String aux;
+        int cont =0;
+        if(v.isEmpty()){
+            txtResultado.setText("no hay  persona que mostrar");
+        }else{
+            
+        }
+                for (int i = 0; i < v.size(); i++) {
+            aux ="persona no ."+(i+1)+"\n"
+            + "identificacion"+v.get(i).getIdentificacion()+"\n"
+            +"primer nombre :"+v.get(i).getPrimer_nombre()+"\n"
+            +"primer apellido :"+v.get(i).getPrimer_apellido()+"\n"
+           +"primer sexo :"+v.get(i).getSexo()+"\n\n";
+            
+            txtResultado.append(aux);
+            cont ++;
+            
+        }
+        if(cont ==0){
+            txtResultado.setText("no hay personas que mostrar");
+        }            
+        
+    }//GEN-LAST:event_txtSExoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,10 +278,12 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbSexo;
     private javax.swing.JButton cmdLimpiar;
     private javax.swing.JButton cmdMostar;
     private javax.swing.JButton cmdguardar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -248,5 +296,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdentificacion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextArea txtResultado;
+    private javax.swing.JButton txtSExo;
     // End of variables declaration//GEN-END:variables
 }
